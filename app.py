@@ -1,3 +1,4 @@
+import os
 import random
 import requests
 import streamlit as st
@@ -263,7 +264,7 @@ def score_movie(movie, mood, group_type):
 
 
 def get_movie_pool(mood, group_type, page=1):
-    token = st.secrets["TMDB_BEARER_TOKEN"]
+    token = os.environ["TMDB_BEARER_TOKEN"]
     url = "https://api.themoviedb.org/3/discover/movie"
     headers = {
         "Authorization": f"Bearer {token}",
